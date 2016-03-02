@@ -66,8 +66,30 @@ def check_file(file):
         except:
             print("Bad m4a", file)
 
-for dirname, dirnames, filenames in os.walk('.'):
-    for subdirname in dirnames:
-        check_file(os.path.join(dirname, subdirname))
-    for filename in filenames:
-        check_file(os.path.join(dirname, filename))
+response = input("run - change music file names" + os.linesep +
+                 "organize - make folders from your music files" + os.linesep +
+                 "quit - exit the program" + os.linesep +
+                 "Type your command:")
+
+
+def type_input(runfunc):
+    if runfunc == "run":
+        if "yes" == input("Are you sure? Make sure you back up your files first (yes/no):"):
+            for dirname, dirnames, filenames in os.walk('.'):
+                for subdirname in dirnames:
+                    check_file(os.path.join(dirname, subdirname))
+                for filename in filenames:
+                    check_file(os.path.join(dirname, filename))
+        else:
+            type_input(input("run - change music file names" + os.linesep +
+                             "organize - make folders from your music files" + os.linesep +
+                             "quit - exit the program" + os.linesep +
+                             "Type your command:"))
+
+    elif runfunc == "quit":
+        pass
+
+    else:
+        type_input(input("Invalid Command" + ''' " ''' + runfunc + ''' " :'''))
+
+type_input(response)
