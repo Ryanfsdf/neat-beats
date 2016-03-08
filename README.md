@@ -14,3 +14,10 @@ TO DO:
 -include support for more music files
 -make it more user friendly
 -organize everything into album folders
+
+
+Turn this mess
+![Alt text](https://github.com/Ryanfsdf/Pymfile/blob/master/Sample1.png "")
+
+Into this
+![Alt text](https://github.com/Ryanfsdf/Pymfile/blob/master/Sample2.png "")
