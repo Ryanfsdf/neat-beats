@@ -2,10 +2,12 @@
 
 import os
 import re
-#TO DO - remove digit in track number for numbers larger than 2 digits
+
+
+# TO DO - remove digit in track number for numbers larger than 2 digits
 # - make a safety catch to leave song alone if the title is less than 4 characters
 # - fix bad files not being put into 000 NO ALBUM SONGS
-
+# - fix no files going into 000 NO ALBUM SONGS or the folder not being created at all
 
 def check_file(file):
     if file.lower().endswith(".mp3"):
@@ -50,61 +52,73 @@ def check_file(file):
 
 def organize_file(file):
     if file.lower().endswith(".mp3"):
+        from mutagen.mp3 import EasyMP3
+        audio = EasyMP3(file)
         try:
-            from mutagen.mp3 import EasyMP3
-            audio = EasyMP3(file)
             new_artist = audio["artist"]
             new_album = audio["album"]
             try:
                 os.makedirs(re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + " - " +
                             re.sub('[^A-Za-z0-9\s]+', '', str(new_album)))
             except:
-                try:
-                    os.makedirs("000 NO ALBUM SONGS")
-                    os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
-                except: os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
+                pass
             os.rename(file, os.path.join((re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + " - " +
                                           re.sub('[^A-Za-z0-9\s]+', '', str(new_album))), file))
         except:
-            pass
+            try:
+                os.makedirs("000 NO ALBUM SONGS")
+            except:
+                pass
+            try:
+                os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
+            except:
+                print("Could not move " + file)
 
     if file.lower().endswith(".flac"):
+        from mutagen.flac import FLAC
+        audio = FLAC(file)
         try:
-            from mutagen.flac import FLAC
-            audio = FLAC(file)
             new_artist = audio["artist"]
             new_album = audio["album"]
             try:
                 os.makedirs(re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + " - " +
                             re.sub('[^A-Za-z0-9\s]+', '', str(new_album)))
             except:
-                try:
-                    os.makedirs("000 NO ALBUM SONGS")
-                    os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
-                except: os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
+                pass
             os.rename(file, os.path.join((re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + " - " +
                                           re.sub('[^A-Za-z0-9\s]+', '', str(new_album))), file))
         except:
-            pass
+            try:
+                os.makedirs("000 NO ALBUM SONGS")
+            except:
+                pass
+            try:
+                os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
+            except:
+                print("Could not move " + file)
 
     if file.lower().endswith(".m4a"):
+        from mutagen.mp4 import MP4
+        audio = MP4(file)
         try:
-            from mutagen.mp4 import MP4
-            audio = MP4(file)
             new_artist = audio['\xa9ART']
             new_album = audio['\xa9alb']
             try:
                 os.makedirs(re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + " - " +
                             re.sub('[^A-Za-z0-9\s]+', '', str(new_album)))
             except:
-                try:
-                    os.makedirs("000 NO ALBUM SONGS")
-                    os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
-                except: os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
+                pass
             os.rename(file, os.path.join((re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + " - " +
                                           re.sub('[^A-Za-z0-9\s]+', '', str(new_album))), file))
         except:
-            pass
+            try:
+                os.makedirs("000 NO ALBUM SONGS")
+            except:
+                pass
+            try:
+                os.rename(file, os.path.join("000 NO ALBUM SONGS", file))
+            except:
+                print("Could not move " + file)
 
 
 def type_input(runfunc):
@@ -148,6 +162,7 @@ def type_input(runfunc):
 
     else:
         type_input(input("Invalid Command" + ''' " ''' + runfunc + ''' " :'''))
+
 
 response = input("run - Collapse all folders and rename music files" + os.linesep +
                  "organize - Organize all music files into folders for "
