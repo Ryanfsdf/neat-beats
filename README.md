@@ -6,7 +6,7 @@ essentially extracts the actual title/album/artist/tracknumber from a song and i
 Works by using Mutagen 1.3.1. 
 
 HOW TO USE:
-Place a music folder in the file directory as Pymfile.py and execute the python file. This will give you a list of commands of what you would like to do. Type in your commands and let it do the rest!
+Place a music folder in the file directory as pymfile.py and execute the python file. This will give you a list of commands of what you would like to do. Type in your commands and let it do the rest!
 
 UPCOMING:
 -include support for more music files (Currently supports m4a,mp3,flac)
