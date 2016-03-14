@@ -42,7 +42,6 @@ def organize_file(file):
     if file.lower().endswith(".m4a"):
         from mutagen.mp4 import MP4
         audio = MP4(file)
-
         try:
             new_artist = audio['\xa9ART']
             new_album = audio['\xa9alb']

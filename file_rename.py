@@ -10,7 +10,6 @@ def rename_file(file):
     :param file: directory of file
     :return: renames the music file in the format "?Track# Name" and puts it in the main directory
     """
-
     if file.lower().endswith(".mp3"):
         try:
             from mutagen.mp3 import EasyMP3

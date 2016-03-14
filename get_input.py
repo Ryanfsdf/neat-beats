@@ -23,12 +23,14 @@ def type_input(inputted_command):
                              "their corresponding album/artist name" + os.linesep +
                              "quit - exit the program" + os.linesep +
                              "Type your command:"))
+
         else:
             type_input(input("run - Collapse all folders and rename music files" + os.linesep +
                              "organize - Organize all music files into folders for "
                              "their corresponding album/artist name" + os.linesep +
                              "quit - exit the program" + os.linesep +
                              "Type your command:"))
+
     if inputted_command == "organize":
         if "yes" == input("Are you sure? Make sure you back up your files first (yes/no):"):
             for dirname, dirnames, filenames in os.walk('.'):
@@ -40,14 +42,16 @@ def type_input(inputted_command):
             type_input(input("run - Collapse all folders and rename music files" + os.linesep +
                              "quit - exit the program" + os.linesep +
                              "Type your command:"))
+
         else:
             type_input(input("run - Collapse all folders and rename music files" + os.linesep +
                              "organize - Organize all music files into folders for "
                              "their corresponding album/artist name" + os.linesep +
                              "quit - exit the program" + os.linesep +
                              "Type your command:"))
-    elif inputted_command == "quit":
-        pass
+
+    if inputted_command == "quit":
+        quit()
 
     else:
         type_input(input("Invalid Command" + ''' " ''' + inputted_command + ''' " :'''))
