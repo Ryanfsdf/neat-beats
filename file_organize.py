@@ -5,11 +5,6 @@ import re
 
 
 def organize_file(file):
-    """
-    organize_file takes in a file directory and organizes the file into its corresponding folder
-    :param file: directory of file
-    :return: organizes the music file into a folder in the format "Artist - Album" in the main directory
-    """
     if file.lower().endswith(".mp3") | file.lower().endswith(".flac"):
         if file.lower().endswith(".mp3"):
             from mutagen.mp3 import EasyMP3

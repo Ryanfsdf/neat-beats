@@ -7,9 +7,9 @@ import file_rename
 
 def type_input(inputted_command):
     """
-    type_input takes in a command and calls the corresponding functions from file_organize and file_rename
-    :param inputted_command: any of "run "organize" "quit"
-    :return: calls the functions that organize/rename the music files
+    type_input takes in a inputted_command and calls the functions that organize/rename the music files
+    type_input: any of "run "organize" "quit" -> functions from FileOrganize FileRename
+    :type inputted_command: any of "run "organize" "quit"
     """
     if inputted_command == "run":
         if "yes" == input("Are you sure? Make sure you back up your files first (yes/no):"):
