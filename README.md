@@ -9,8 +9,8 @@ HOW TO USE:
 Place a music folder in the file directory as pymfile.py and execute the python file. This will give you a list of commands of what you would like to do. Type in your commands and let it do the rest!
 
 UPCOMING:
--include support for more music files (Currently supports m4a,mp3,flac) \n
--make it more user friendly (Maybe a GUI) \n
+-include support for more music files (Currently supports m4a,mp3,flac)
+-make it more user friendly (Maybe a GUI)
 -more options such as organizing by artist name, etc.
 
 
