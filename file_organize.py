@@ -10,27 +10,33 @@ from mutagen.mp4 import MP4
 
 def organize_file(file):
     """
-    organize_file takes in a file directory and organizes the file into its corresponding folder
+    organize_file takes in a file directory and organizes the file into
+        its corresponding folder
     :param file: directory of file
-    :return: organizes the music file into a folder in the format 'Artist - Album' in the main directory
+    :return: organizes the music file into a folder in the format
+        'Artist - Album' in the main directory
     """
     if file.lower().endswith('.mp3') | file.lower().endswith('.flac'):
         if file.lower().endswith('.mp3'):
             audio = EasyMP3(file)
-
         if file.lower().endswith('.flac'):
             audio = FLAC(file)
-
         try:
-            new_artist = audio['artist']
+            if 'artist' in audio:
+                new_artist = audio['artist']
+            else:
+                new_artist = 'NOARTIST'
             new_album = audio['album']
             try:
-                os.makedirs(re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + ' - ' +
+                os.makedirs(re.sub('[^A-Za-z0-9\s]+', '',
+                                   str(new_artist)) + ' - ' +
                             re.sub('[^A-Za-z0-9\s]+', '', str(new_album)))
             except:
                 pass
-            os.rename(file, os.path.join((re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + ' - ' +
-                                          re.sub('[^A-Za-z0-9\s]+', '', str(new_album))), file))
+            os.rename(file, os.path.join((re.sub('[^A-Za-z0-9\s]+', '',
+                                                 str(new_artist)) + ' - ' +
+                                          re.sub('[^A-Za-z0-9\s]+', '',
+                                                 str(new_album))), file))
         except:
             try:
                 os.makedirs('000 NO ALBUM SONGS')
@@ -47,12 +53,15 @@ def organize_file(file):
             new_artist = audio['\xa9ART']
             new_album = audio['\xa9alb']
             try:
-                os.makedirs(re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + ' - ' +
+                os.makedirs(re.sub('[^A-Za-z0-9\s]+', '',
+                                   str(new_artist)) + ' - ' +
                             re.sub('[^A-Za-z0-9\s]+', '', str(new_album)))
             except:
                 pass
-            os.rename(file, os.path.join((re.sub('[^A-Za-z0-9\s]+', '', str(new_artist)) + ' - ' +
-                                          re.sub('[^A-Za-z0-9\s]+', '', str(new_album))), file))
+            os.rename(file, os.path.join((re.sub('[^A-Za-z0-9\s]+', '',
+                                                 str(new_artist)) + ' - ' +
+                                          re.sub('[^A-Za-z0-9\s]+', '',
+                                                 str(new_album))), file))
         except:
             try:
                 os.makedirs('000 NO ALBUM SONGS')
