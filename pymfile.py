@@ -4,6 +4,7 @@ import os
 import get_input
 
 # TO DO - clean up exceptions in file_organize
+# - change working directory to somewhere inside the main folder
 
 
 response = input('run - Collapse all folders and rename music files' +
