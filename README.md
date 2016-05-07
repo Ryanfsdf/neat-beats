@@ -19,3 +19,8 @@ UPCOMING:
 
 ~Into this~
 ![Alt text](https://github.com/Ryanfsdf/Pymfile/blob/master/Sample2.png "")
+
+
+This is done by extracting the metadata from an audio file. This is particularily useful since a lot of songs downloaded
+from the internet tend to have inconsistent conventions for naming the files, whereas the metadata is generally the same
+regardless of where the song is downloaded from.
