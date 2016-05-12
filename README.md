@@ -1,6 +1,7 @@
 # NeatBeats
 
-NeatBeats (Python Music File) renames all the music files in a folder to the actual title of the song from its metadata. 
+NeatBeats renames all the music files in a folder to the actual title of the song from its metadata and organizes them
+into folders neatly named by the album names. 
 Extremely helpful for organizing a lot of music files downloaded from the internet, which often have obscure file names. 
 This program essentially extracts the actual title/album/artist/tracknumber from a song and incorporates it into the actual file/folder name.
 Works by using Mutagen 1.3.1 to extract the metadata and also regex to standardize all the file names
