@@ -11,7 +11,7 @@ Place a music folder in the file directory as neatbeats.py and execute the pytho
 
 UPCOMING:
   * include support for more music files (Currently supports m4a, mp3, flac)
-  * make it more user friendly (Maybe a GUI)
+  * make it more user friendly (a GUI once I learn how to use Tkinter)
   * more options such as organizing by artist name, etc.
 
 
